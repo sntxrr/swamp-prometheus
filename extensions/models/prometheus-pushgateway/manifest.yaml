@@ -1,7 +1,7 @@
 manifestVersion: 1
 
 name: "@sntxrr/prometheus-pushgateway"
-version: "2026.10.14.1"
+version: "2026.10.22.1"
 description: "Push metrics from a scheduled swamp method into a Prometheus Pushgateway. Scheduled jobs are exactly what Pushgateway exists for: a batch that runs, computes numbers, and exits long before any scrape could reach it. The `@sntxrr/prometheus/pushgateway` model's `push` method takes a flat `{name, value, labels}` series — the shape several models already emit alongside their verdicts — renders it as text exposition format, and writes it to a grouping key. Defaults to PUT so a series that disappears from the source disappears from the gateway, rather than lingering at its last value forever. Validates metric and label names and rejects non-finite values before sending, because Pushgateway answers 400 without naming the offending series and a single NaN discards the whole batch. Handles the base64 grouping-key escape for values containing a slash or empty values, which would otherwise corrupt or collapse a path segment. Emits an optional heartbeat counter, because pushed metrics go stale silently: the gateway serves the last value forever, so a job that stops running leaves every dashboard green while nothing is being checked."
 license: MIT
 repository: "https://github.com/sntxrr/swamp-prometheus"
